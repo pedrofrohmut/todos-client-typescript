@@ -1,0 +1,40 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  font-size: 14px;
+  --grey1: #222;
+  --grey2: #333;
+  --grey3: #484848;
+  --grey4: #666;
+  --grey5: #888;
+  --grey6: #989898;
+  --grey7: #aaa;
+  --grey8: #ccc;
+  --grey9: #e5e5e5;
+  --grey10: #f3f3f3;
+}
+
+body {
+  overflow-y: hidden;
+  min-height: 100vh;
+  background-color: var(--grey10);
+  color: var(--grey3);
+  text-align: left;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+}
+
+a {
+  color: var(--grey3);
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}

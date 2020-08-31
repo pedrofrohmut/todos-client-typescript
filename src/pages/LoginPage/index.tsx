@@ -2,9 +2,11 @@ import React from "react"
 
 import { Container } from "./styles"
 
-const LoginPage = () => (
+import PageTitle from "../../components/shared/PageTitle"
+
+const LoginPage: React.FC = () => (
   <Container className="LoginPage">
-    <h1>Login Page</h1>
+    <PageTitle>Todo App</PageTitle>
   </Container>
 )
 

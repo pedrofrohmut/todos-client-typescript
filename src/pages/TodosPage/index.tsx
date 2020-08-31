@@ -1,10 +1,12 @@
 import React from "react"
 
+import PageTitle from "../../components/shared/PageTitle"
+
 import { Container } from "./styles"
 
 const TodosPage: React.FC = () => (
   <Container className="TodosPage">
-    <h1>Todos Page</h1>
+    <PageTitle>Todos Page</PageTitle>
   </Container>
 )
 

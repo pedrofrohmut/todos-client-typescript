@@ -1,10 +1,12 @@
 import React from "react"
 
+import PageTitle from "../../components/shared/PageTitle"
+
 import { Container } from "./styles"
 
 const EditTodoPage: React.FC = () => (
   <Container className="EditTodoPage">
-    <h1>Edit Todo Page</h1>
+    <PageTitle>Edit Todo Page</PageTitle>
   </Container>
 )
 
