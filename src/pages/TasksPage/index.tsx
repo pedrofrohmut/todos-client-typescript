@@ -6,7 +6,7 @@ import { Container } from "./styles"
 
 const TasksPage: React.FC = () => (
   <Container className="TasksPage">
-    <PageTitle>Tasks Page</PageTitle>
+    <PageTitle>Todo App | Tasks</PageTitle>
   </Container>
 )
 

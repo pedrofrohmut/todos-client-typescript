@@ -6,7 +6,7 @@ import { Container } from "./styles"
 
 const SignUpPage: React.FC = () => (
   <Container className="SignUpPage">
-    <PageTitle>Sign up Page</PageTitle>
+    <PageTitle>Todo App | Sign up</PageTitle>
   </Container>
 )
 
