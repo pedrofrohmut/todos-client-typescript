@@ -1,12 +1,18 @@
 import React from "react"
 
-import PageTitle from "../../components/shared/PageTitle"
-
 import { Container } from "./styles"
+
+import PageTitle from "../../components/shared/PageTitle"
+import FormTabs from "../../components/shared/FormTabs"
+import FormTab from "../../components/shared/FormTab"
 
 const SignUpPage: React.FC = () => (
   <Container className="SignUpPage">
     <PageTitle>Todo App | Sign up</PageTitle>
+    <FormTabs>
+      <FormTab>Log In</FormTab>
+      <FormTab isActive={true}>Sign Up</FormTab>
+    </FormTabs>
     <div className="form-wrapper">
       <form>
         <div className="form-group">

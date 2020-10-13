@@ -15,8 +15,6 @@ import EditTodoPage from "./pages/EditTodoPage"
 
 import { Container, Content, Footer } from "./styles"
 
-// TODO: Add GuestRoute and UserRoute
-
 const App = () => {
   const { isAuthenticated } = useContext(AppContext)
   return (
