@@ -44,7 +44,7 @@ ul {
 
 .form-wrapper {
   border: 1px solid var(--grey8);
-  padding: 2rem;
+  padding: 2rem 2.5rem;
   border-radius: 0.3em;
   box-shadow: var(--form-shadow);
 }
