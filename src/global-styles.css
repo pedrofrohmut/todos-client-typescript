@@ -18,6 +18,9 @@
   --grey8: #ccc;
   --grey9: #e5e5e5;
   --grey10: #f3f3f3;
+  --clr-primary: rgb(54, 112, 199);
+
+  --form-shadow: 2px 2px 5px 1px #d6d6d6;
 }
 
 body {
@@ -37,4 +40,38 @@ a {
 
 ul {
   list-style: none;
+}
+
+.form-wrapper {
+  border: 1px solid var(--grey8);
+  padding: 2rem;
+  border-radius: 0.3em;
+  box-shadow: var(--form-shadow);
+}
+
+.form-group {
+  padding: 0.5rem 0rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.6rem;
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"] {
+  border: 2px solid var(--grey8);
+  border-radius: 0.3em;
+  padding: 0.5rem 1rem;
+  width: 100%;
+}
+
+.form-group button[type="submit"] {
+  border: 0;
+  color: var(--grey9);
+  background-color: var(--clr-primary);
+  padding: 0.4rem 1.2rem;
+  font-weight: 400;
+  font-size: 1.0rem;
+  margin-top: 0.2rem;
 }

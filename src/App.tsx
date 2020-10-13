@@ -43,6 +43,8 @@ const App = () => {
               <EditTodoPage />
             </UserRoute>
           </Switch>
+          <br />
+          <br />
           <nav>
             <ul>
               <li>
