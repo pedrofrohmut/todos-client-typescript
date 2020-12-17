@@ -1,7 +1,8 @@
-import React, { useContext } from "react"
+import React, { useReducer } from "react"
 import { BrowserRouter as Router, Switch, Link } from "react-router-dom"
 
-import { AppContext } from "./context/AppContext"
+import { INITIAL_STATE } from "./context/AppContext"
+import AppReducer from "./context/AppContext/AppReducer"
 
 import GuestRoute from "./components/routes/GuestRoute"
 import UserRoute from "./components/routes/UserRoute"
@@ -16,7 +17,8 @@ import EditTodoPage from "./pages/EditTodoPage"
 import { Container, Content, Footer } from "./styles"
 
 const App = () => {
-  const { isAuthenticated } = useContext(AppContext)
+  const [state] = useReducer(AppReducer, INITIAL_STATE)
+  const { isAuthenticated } = state
   return (
     <Router>
       <Container className="App">

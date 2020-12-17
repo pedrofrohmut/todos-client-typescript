@@ -1,8 +1,13 @@
 import { createContext } from "react"
 
-const hello = () => console.log("Hello World!")
+export interface AppState {
+  isAuthenticated: boolean
+  tasks: string[]
+  message: string
+  hello?: () => void
+}
 
-const INITIAL_STATE = Object.freeze({
+export const INITIAL_STATE: AppState = {
   isAuthenticated: false,
   tasks: [
     "Rotina",
@@ -12,7 +17,9 @@ const INITIAL_STATE = Object.freeze({
     "Contas",
     "Banco"
   ],
-  hello
-})
+  message: "NO MESSAGE"
+}
 
-export const AppContext = createContext(INITIAL_STATE)
+const AppContext = createContext(INITIAL_STATE)
+
+export default AppContext
