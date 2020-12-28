@@ -1,25 +1,26 @@
-import axios from "axios"
-
 import { AppAction } from "../../AppContext/AppReducer"
+import { setAuthToken } from "../../../utils/storage"
+import { setAuthorizationHeaders } from "../../../utils/authorizationHeaders"
+import loginApi, { LoginBody } from "../../../api/users/login"
 
-export interface Credentials {
-  email: string
-  password: string
+export interface LoginActionResponse {
+  hasError: boolean
 }
 
-const loginAction = (dispatch: React.Dispatch<AppAction>, credentials: Credentials): void => {
-  axios
-    .post("http://localhost:5000/api/v1/public/users/login", credentials)
-    .then((response) => {
-      // TODO: set the localStorage token
-      // TODO: set headers
-      // TODO: Dispatch login success with more information
-      dispatch({ type: "LOGIN_SUCCESS" })
+export default async (
+  dispatch: React.Dispatch<AppAction>,
+  credentials: LoginBody
+): Promise<LoginActionResponse> => {
+  const { data, hasError, message } = await loginApi(credentials)
+  if (!hasError) {
+    setAuthToken(data.token)
+    setAuthorizationHeaders(data.token)
+    dispatch({
+      type: "LOGIN_SUCCESS",
+      payload: data
     })
-    .catch((error) => {
-      // TODO: decide what to do when it fails
-    })
-    .then(() => {
-      // TODO: check if finally block is necessary
-    })
+  } else {
+    console.log("Has Error: " + message)
+  }
+  return { hasError }
 }
