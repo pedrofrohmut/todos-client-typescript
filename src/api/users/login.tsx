@@ -13,11 +13,10 @@ export default async (credentials: LoginBody): Promise<ApiResponse> => {
       "http://localhost:5000/api/v1/public/users/login",
       credentials
     )
-    const { httpStatus, message } = response.data
+    const { message } = response.data
     const { token, user } = response.data.data
     const { id, email, firstName, lastName } = user
     const apiResponse: ApiResponse = {
-      httpStatus,
       message,
       hasError: false,
       data: {
@@ -33,7 +32,6 @@ export default async (credentials: LoginBody): Promise<ApiResponse> => {
     return apiResponse
   } catch (error) {
     const apiErrorResponse: ApiResponse = {
-      httpStatus: error.response.status,
       message: error.response.data,
       hasError: true
     }

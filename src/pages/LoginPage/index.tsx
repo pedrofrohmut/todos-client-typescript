@@ -2,9 +2,9 @@ import React, { useReducer } from "react"
 
 import { Container } from "./styles"
 
-import { INITIAL_STATE } from "../../context/AppContext"
-import AppReducer from "../../context/AppContext/AppReducer"
-import loginAction from "../../context/AppContext/Actions/loginAction"
+import { INITIAL_STATE } from "../../context"
+import AppReducer from "../../context/AppReducer"
+import loginMethod from "../../context/Methods/loginMethod"
 
 import PageTitle from "../../components/shared/PageTitle"
 import FormTabs from "../../components/shared/FormTabs"
@@ -20,7 +20,7 @@ const LoginPage: React.FC = () => {
       email: "bob_marley@mail.com",
       password: "1234"
     }
-    const loginActionResponse = await loginAction(dispatch, credentials)
+    const loginActionResponse = await loginMethod(dispatch, credentials)
     // TODO: Feedback baloon implementation for success an error
     console.log("ACTION RESPONSE: ", loginActionResponse)
   }

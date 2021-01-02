@@ -1,8 +1,8 @@
 import React, { useReducer } from "react"
 import { BrowserRouter as Router, Switch, Link } from "react-router-dom"
 
-import { INITIAL_STATE } from "./context/AppContext"
-import AppReducer from "./context/AppContext/AppReducer"
+import { INITIAL_STATE } from "./context"
+import AppReducer from "./context/AppReducer"
 
 import GuestRoute from "./components/routes/GuestRoute"
 import UserRoute from "./components/routes/UserRoute"
