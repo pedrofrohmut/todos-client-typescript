@@ -7,6 +7,7 @@ import { setAuthorizationHeaders } from "../../utils/authorizationHeaders"
 
 export interface LoginActionResponse {
   hasError: boolean
+  message: string
 }
 
 const loginMethod = async (
@@ -21,7 +22,10 @@ const loginMethod = async (
   } else {
     console.log("Has Error: " + message)
   }
-  return { hasError }
+  return { 
+    hasError, 
+    message 
+  }
 }
 
 export default loginMethod
