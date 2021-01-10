@@ -7,7 +7,7 @@ export interface LoginBody {
   password: string
 }
 
-export default async (credentials: LoginBody): Promise<ApiResponse> => {
+const loginApi = async (credentials: LoginBody): Promise<ApiResponse> => {
   try {
     const response = await axios.post(
       "http://localhost:5000/api/v1/public/users/login",
@@ -38,3 +38,5 @@ export default async (credentials: LoginBody): Promise<ApiResponse> => {
     return apiErrorResponse
   }
 }
+
+export default loginApi

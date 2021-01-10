@@ -1,8 +1,10 @@
-import React, { useReducer } from "react"
+import React, { useReducer, useEffect } from "react"
 import { BrowserRouter as Router, Switch, Link } from "react-router-dom"
 
 import { INITIAL_STATE } from "./context"
 import AppReducer from "./context/AppReducer"
+import { getAuthToken } from "./utils/localStorage"
+import authenticateMethod from "./context/Methods/authenticateMethod"
 
 import GuestRoute from "./components/routes/GuestRoute"
 import UserRoute from "./components/routes/UserRoute"
@@ -17,18 +19,32 @@ import EditTodoPage from "./pages/EditTodoPage"
 import { Container, Content, Footer } from "./styles"
 
 const App = () => {
-  const [state] = useReducer(AppReducer, INITIAL_STATE)
+  const [state, dispatch] = useReducer(AppReducer, INITIAL_STATE)
   const { isAuthenticated } = state
+
+  const authenticateAuthToken = async (token: string) => {
+    const authenticateTokenResponse = await authenticateMethod(dispatch, { token })
+    console.log(authenticateTokenResponse)
+  }
+
+  useEffect(() => {
+    const authToken = getAuthToken()
+    if (authToken) {
+      authenticateAuthToken(authToken)
+    }
+  }, [])
+
   return (
     <Router>
       <Container className="App">
+        <p style={{ fontSize: "20px" }}>is authenticated: {isAuthenticated ? "TRUE" : "FALSE"}</p>
         <Content>
           <Switch>
             <UserRoute isAuthenticated={isAuthenticated} exact path="/">
               <TasksPage />
             </UserRoute>
             <GuestRoute isAuthenticated={isAuthenticated} exact path="/login">
-              <LoginPage />
+              <LoginPage dispatch={dispatch} />
             </GuestRoute>
             <GuestRoute isAuthenticated={isAuthenticated} exact path="/signup">
               <SignUpPage />
